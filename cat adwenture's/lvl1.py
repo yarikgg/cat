@@ -110,10 +110,9 @@ while start:
         graviti2()
     if catx >= 800:
         print('ты выйграл')
-        win = pygame.font.SysFont('serif', 48)
-        wintext = win.render('You Win!', True,
-                (180, 180, 0))
-        display.blit(wintext,(800//2,402//2))
+        f=open('lvl.txt','w')
+        f.write('2')
+        f.close()
         time.sleep(3)      
         exit()
     if catx == 520 and 561 and jump == False:
