@@ -2,7 +2,9 @@ f=open('lvl.txt','r')
 chek = f.read()
 f.close()
 
-if chek == '2':
+chek = int(chek)
+
+if chek >= 2:
     import pygame
     import time
     pygame.init()
