@@ -16,7 +16,7 @@ if chek >= '4':
     final_animation = pygame.image.load('cat_animation_final.png')
     lvl1 = pygame.image.load('lvl4.png')
     mouse = pygame.image.load('mouse.png')
-    chert = pygame.image.load('неадекват.png')
+    chert = pygame.image.load('monster.png')
     fire_ball = pygame.image.load('fire ball.png')
 
     x = 0

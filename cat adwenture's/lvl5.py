@@ -17,8 +17,8 @@ if chek >= '5':
     bat = pygame.image.load('bat.png')
     lvl1 = pygame.image.load('lvl5.png')
     mouse = pygame.image.load('mouse.png')
-    enemy = pygame.image.load('неадекват.png') 
-    enemy2 = pygame.image.load('неадекват2.png')
+    enemy = pygame.image.load('monster.png') 
+    enemy2 = pygame.image.load('monster2.png')
     fire_ball = pygame.image.load('fire ball.png')
     # переменные
     x = 0
