@@ -61,7 +61,7 @@ if chek >= '4':
     FPS = 60
 
     jump = False
-    game = False #меню активно
+    game = False #menu
     start = True
     while start:
         for event in pygame.event.get():
@@ -131,7 +131,7 @@ if chek >= '4':
             if catx >= 74:
                 graviti2()
             if catx >= 800:
-                print('ты выйграл')
+                print('you win')
                 f=open('lvl.txt','w')
                 f.write('5')
                 f.close()
@@ -169,4 +169,4 @@ if chek >= '4':
 
 
 else:
-    print('пройдите 3 уровень')
+    print('3lvl!')

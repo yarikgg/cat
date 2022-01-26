@@ -9,7 +9,7 @@ if chek >= '5':
     pygame.init()
     w,h = 800,402
     display = pygame.display.set_mode((w,h))
-    #спрайты
+    #sprite
     cat = pygame.image.load('cat.png')
     cat_animation1 = pygame.image.load('cat_animation1.png')
     cat_animation2 = pygame.image.load('cat_animation2.png')
@@ -21,7 +21,7 @@ if chek >= '5':
     enemy2 = pygame.image.load('неадекват2.png')
     fire_ball = pygame.image.load('fire ball.png')
     menu = pygame.image.load('menu.png')
-    # переменные
+    # data
     x = 0
     catx = 30
     caty = 315
@@ -46,7 +46,7 @@ if chek >= '5':
     start = True
 
     health = 3
-    #гравитация для пола
+    #graviti for flor
     def graviti():
         global caty
         global catx
@@ -54,7 +54,7 @@ if chek >= '5':
             caty += 2
             if caty >= 315:
                 caty = 315
-    #гравитация для "мостика"
+    #graviti for "brige"
     def graviti2():
         global caty
         global catx
@@ -63,7 +63,7 @@ if chek >= '5':
             caty += 2
             if caty >= 184:
                 caty = 184 
-    #отрисовка стартовой позиции- не обязательно
+    #start position-not necessary
     display.blit(lvl1,(0,0))
     display.blit(cat,(catx,caty))
     pygame.display.update()
@@ -99,37 +99,37 @@ if chek >= '5':
                         if x <= 495 and y <= 135:
                             game = True
         if game == True:
-            f = pygame.font.SysFont('serif', 48)# текст
+            f = pygame.font.SysFont('serif', 48)#health
             text = f.render('здоровье='+str(health), True,
                 (0, 180, 0))
             clock.tick(FPS)
-            #основная логика
+            #logic
             if x == 1:
                 catx += 2
             if x == -1:
                 catx -= 2
             if jump == True:
-                display.blit(lvl1,(0,0))                        #   анимация
+                display.blit(lvl1,(0,0))                        #   animation
                 display.blit(cat_animation1,(catx,caty))
                 display.blit(text,(4,4))  
                 display.blit(mouse,(mx, 355))
                 display.blit(fire_ball,(fx1,180))
                 display.blit(fire_ball,(fx2,180))
                 display.blit(enemy,(750,180))
-                display.blit(enemy2,(0,180))      #   анимация
-                pygame.display.update()                         #   анимация   
+                display.blit(enemy2,(0,180))      #   animation
+                pygame.display.update()                         #   animation   
                 time.sleep(0.3)
                 fx1 += 20
-                fx2 -= 20                                  #   анимация
-                display.blit(lvl1,(0,0))                        #   анимация
+                fx2 -= 20                                  #   animation
+                display.blit(lvl1,(0,0))                        #   animation
                 display.blit(cat_animation2,(catx,caty))
                 display.blit(text,(4,4))
                 display.blit(mouse,(mx, 355))
                 display.blit(fire_ball,(fx1,180))
                 display.blit(fire_ball,(fx2,180))
                 display.blit(enemy,(750,180))
-                display.blit(enemy2,(0,180))        #   анимация       
-                pygame.display.update()                         #   анимация
+                display.blit(enemy2,(0,180))        #  animation      
+                pygame.display.update()                         #   animation
                 time.sleep(0.3)
                 display.blit(lvl1,(0,0))
                 caty -= 160
@@ -162,13 +162,13 @@ if chek >= '5':
             if catx == mx and 610 and jump == False:
                 stopmouse = False
                 health += 1
-            if stopmouse == False:# движение мыши
+            if stopmouse == False:#mouse control
                 mx += 7
-            if catx >= 247 and catx <= 440 and caty >= 353: # обрыв
+            if catx >= 247 and catx <= 440 and caty >= 353: # fall
                 caty += 3
-            if caty >= 330: # если игрок очень низко то мерть
+            if caty >= 330: # if player very lower die
                 exit()
-            if catx >= 316 and catx <= 372 and caty == 184: # проверка наступил ли игрок на лужу
+            if catx >= 316 and catx <= 372 and caty == 184: # water
                 start = False
             fx1 += 2
             fx2 -= 2
@@ -177,7 +177,7 @@ if chek >= '5':
                 fx2 = 750
             if fx1 == catx and caty == 184 or fx2 == catx and caty == 184:
                 exit()
-            #отрисовка ВСЕХ обьетов
+            #all object
             pygame.display.update()
             display.blit(lvl1,(0,0))        
             display.blit(cat,(catx,caty))    
@@ -192,5 +192,5 @@ if chek >= '5':
             display.blit(menu,(0,0))
             pygame.display.update()
 else:
-    print('пройдите 4 уровень!')
+    print('4lvl!')
     
