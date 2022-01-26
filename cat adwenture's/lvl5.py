@@ -95,8 +95,8 @@ if chek >= '5':
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     print(pygame.mouse.get_pos())
                     x,y = pygame.mouse.get_pos()
-                    if x >= 312 and y >= 111:
-                        if x <= 495 and y <= 135:
+                    if x >= 313 and y >= 111:
+                        if x <= 495 and y <= 160:
                             game = True
         if game == True:
             f = pygame.font.SysFont('serif', 48)#health
@@ -164,10 +164,10 @@ if chek >= '5':
                 health += 1
             if stopmouse == False:#mouse control
                 mx += 7
-            if catx >= 247 and catx <= 440 and caty >= 353: # fall
+            if catx >= 247 and catx <= 440 and caty >= 315: # fall
                 caty += 3
             if caty >= 330: # if player very lower die
-                exit()
+                game = False
             if catx >= 316 and catx <= 372 and caty == 184: # water
                 start = False
             fx1 += 2
@@ -176,7 +176,7 @@ if chek >= '5':
                 fx1 = 0
                 fx2 = 750
             if fx1 == catx and caty == 184 or fx2 == catx and caty == 184:
-                exit()
+                game = False
             #all object
             pygame.display.update()
             display.blit(lvl1,(0,0))        

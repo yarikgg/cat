@@ -101,7 +101,7 @@ if chek >= '3':
                     print(pygame.mouse.get_pos())
                     x,y = pygame.mouse.get_pos()
                     if x >= 308 and y >= 111:
-                        if x <= 495 and y <= 135:
+                        if x <= 495 and y <= 160:
                             game = True
         if game == True:
             f = pygame.font.SysFont('serif', 48)
@@ -167,7 +167,7 @@ if chek >= '3':
             if catx >= 200 and catx <= 400 and caty >= 325 and jump == False:
                 caty += 3
             if caty >= 330:
-                exit()
+                game = False
             if catx >= 557 and caty >= 240:
                 x = 0
             if catx >= 659-53 and caty >= 177:
@@ -187,7 +187,7 @@ if chek >= '3':
             if fx <= 0:
                 fx = 550
             if fx == catx and caty >= 260:
-                exit()
+                game = False
             if catx == 500:
                 nx = 99999
             pygame.display.update()

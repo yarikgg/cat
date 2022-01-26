@@ -89,7 +89,7 @@ if chek >= '4':
                     print(pygame.mouse.get_pos())
                     x,y = pygame.mouse.get_pos()
                     if x >= 312 and y >= 111:
-                        if x <= 495 and y <= 135:
+                        if x <= 495 and y <= 160:
                             game = True
         if game == True:
             clock.tick(FPS)
@@ -142,14 +142,14 @@ if chek >= '4':
             if catx == 520 and 561 and caty >= 261:
                 health -= 1
             if health == 0:
-                exit()
+                game = False
             if catx == mx and 610 and jump == False:
                 stopmouse = False
                 health += 1
             if stopmouse == False:
                 mx += 7
             if caty >= 402:
-                exit()
+                game = False
             if catx >= 141 and catx <= 240 and caty >= 261:
                 health -= 1
             fx-=2

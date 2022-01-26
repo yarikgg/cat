@@ -76,7 +76,7 @@ while start:
                 print(pygame.mouse.get_pos())
                 x,y = pygame.mouse.get_pos()
                 if x >= 308 and y >= 111:
-                    if x <= 495 and y <= 135:
+                    if x <= 495 and y <= 160:
                         game = True
     if game == True:
         f = pygame.font.SysFont('serif', 48)
@@ -133,7 +133,7 @@ while start:
         if catx >= 200 and catx <= 400 and caty >= 325 and jump == False:
             caty += 3
         if caty >= 330:
-            exit()
+            game = False
         pygame.display.update()
         display.blit(lvl1,(0,0))        
         display.blit(cat,(catx,caty))    
