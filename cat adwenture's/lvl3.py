@@ -2,6 +2,7 @@ f=open('lvl.txt','r')
 chek = f.read()
 f.close()
 
+
 if chek >= '3':
     import pygame
     import time
@@ -24,7 +25,6 @@ if chek >= '3':
     x = 0
     catx = 30
     caty = 300
-
     mx = 500
 
     bx = 250
@@ -42,7 +42,6 @@ if chek >= '3':
 
     def graviti():
         global caty
-        global catx
         if caty <= 300:
             caty += 2
             if caty >= 300:
@@ -50,7 +49,6 @@ if chek >= '3':
 
     def graviti2():
         global caty
-        global catx
         graviti = False
         if caty <= 238:
             caty += 2
@@ -72,7 +70,7 @@ if chek >= '3':
     FPS = 60
 
     jump = False
-    game = False
+    game = True
 
     start = True
     while start:
@@ -158,7 +156,7 @@ if chek >= '3':
                 f.write('4')
                 f.close()
                 time.sleep(3)      
-                exit()
+                import lvl4.py
             if catx == mx and 610 and jump == False:
                 stopmouse = False
                 health += 1
@@ -167,7 +165,7 @@ if chek >= '3':
             if catx >= 200 and catx <= 400 and caty >= 325 and jump == False:
                 caty += 3
             if caty >= 330:
-                game = False
+                exit()
             if catx >= 557 and caty >= 240:
                 x = 0
             if catx >= 659-53 and caty >= 177:
@@ -187,7 +185,7 @@ if chek >= '3':
             if fx <= 0:
                 fx = 550
             if fx == catx and caty >= 260:
-                game = False
+                exit()
             if catx == 500:
                 nx = 99999
             pygame.display.update()
@@ -202,3 +200,5 @@ if chek >= '3':
         if game == False:
             display.blit(menu,(0,0))
             pygame.display.update()
+else:
+    print('lvl2!')

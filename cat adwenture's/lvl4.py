@@ -1,6 +1,7 @@
-f = open('lvl.txt', 'r')
+f=open('lvl.txt','r')
 chek = f.read()
 f.close()
+
 
 if chek >= '4':
     import pygame
@@ -37,7 +38,6 @@ if chek >= '4':
 
     def graviti():
         global caty
-        global catx
         if caty < 325:
             caty += 2
             if caty >= 325:
@@ -45,7 +45,6 @@ if chek >= '4':
 
     def graviti2():
         global caty
-        global catx
         graviti = False
         if caty < 261:
             caty += 2
@@ -61,7 +60,7 @@ if chek >= '4':
     FPS = 60
 
     jump = False
-    game = False #menu
+    game = True #меню активно
     start = True
     while start:
         for event in pygame.event.get():
@@ -131,25 +130,25 @@ if chek >= '4':
             if catx >= 74:
                 graviti2()
             if catx >= 800:
-                print('you win')
+                print('ты выйграл')
                 f=open('lvl.txt','w')
                 f.write('5')
                 f.close()
                 time.sleep(3)      
-                exit()
+                import lvl5.py
             if catx >= 324 and catx <= 451:
                 caty += 2
             if catx == 520 and 561 and caty >= 261:
                 health -= 1
             if health == 0:
-                game = False
+                exit()
             if catx == mx and 610 and jump == False:
                 stopmouse = False
                 health += 1
             if stopmouse == False:
                 mx += 7
             if caty >= 402:
-                game = False
+                exit()
             if catx >= 141 and catx <= 240 and caty >= 261:
                 health -= 1
             fx-=2
@@ -166,7 +165,3 @@ if chek >= '4':
         elif game == False:
             display.blit(menu,(0,0))
             pygame.display.update()
-
-
-else:
-    print('3lvl!')

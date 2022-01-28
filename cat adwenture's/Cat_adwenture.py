@@ -75,7 +75,7 @@ while start:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 print(pygame.mouse.get_pos())
                 if pygame.mouse.get_pos() >= (308,111):
-                    if pygame.mouse.get_pos() <= (495,135):
+                    if pygame.mouse.get_pos() <= (495,160):
                         game = True
 
     if game == True:
@@ -112,7 +112,7 @@ while start:
         if catx >= 337:
             graviti2()
         if catx >= 800:
-            Lvl2()
+            import lvl2.py
         if catx == 520 and 561 and jump == False:
             health -= 1
         if health == 0:

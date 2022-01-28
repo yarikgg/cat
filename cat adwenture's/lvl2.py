@@ -24,31 +24,35 @@ kx = 250
 i = 2
 health = 3
 
+
+
+
 def graviti():
     global caty
-    global catx
     if caty <= 325:
         caty += 2
         if caty >= 325:
             caty = 325
+
+
 def graviti2():
     global caty
-    global catx
-    graviti = False
     if caty <= 267:
         caty += 2
         if caty >= 267:
-            caty = 267  
+            caty = 267 
+
 
 display.blit(lvl1,(0,0))
 display.blit(cat,(catx,caty))
 pygame.display.update()
 clock = pygame.time.Clock()
+
 FPS = 60
 
 jump = False
 start = True
-game = False
+game = True
 
 while start:
     for event in pygame.event.get():
@@ -88,19 +92,19 @@ while start:
         if x == -1:
             catx -= 2
         if jump == True:
-            display.blit(lvl1,(0,0))                        #   анимация
+            display.blit(lvl1,(0,0)) # animation                  
             display.blit(cat_animation1,(catx,caty))
             display.blit(text,(4,4))  
             display.blit(moster,(kx,325))
-            display.blit(mouse,(mx, 355))      #   анимация
-            pygame.display.update()                         #   анимация   
-            time.sleep(0.3)                                 #   анимация
-            display.blit(lvl1,(0,0))                        #   анимация
+            display.blit(mouse,(mx, 355))      
+            pygame.display.update()                    
+            time.sleep(0.3)                           
+            display.blit(lvl1,(0,0))                  
             display.blit(cat_animation2,(catx,caty))
             display.blit(text,(4,4))
             display.blit(moster,(kx,325))
-            display.blit(mouse,(mx, 355))        #   анимация       
-            pygame.display.update()                         #   анимация
+            display.blit(mouse,(mx, 355))   
+            pygame.display.update()         
             time.sleep(0.3)
             display.blit(lvl1,(0,0))
             caty -= 120
@@ -124,7 +128,7 @@ while start:
             f.write('3')
             f.close()
             time.sleep(3)      
-            exit()
+            import lvl3.py
         if catx == mx and 610 and jump == False:
             stopmouse = False
             health += 1
@@ -133,7 +137,7 @@ while start:
         if catx >= 200 and catx <= 400 and caty >= 325 and jump == False:
             caty += 3
         if caty >= 330:
-            game = False
+            exit()
         pygame.display.update()
         display.blit(lvl1,(0,0))        
         display.blit(cat,(catx,caty))    
@@ -144,4 +148,3 @@ while start:
     if game == False:
         display.blit(menu,(0,0))
         pygame.display.update()
-
