@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
 import pygame
 import time
 
 
 w,h = 800,402
 display = pygame.display.set_mode((w,h))
+pygame.display.set_caption('Cat adwenture')
 
 cat = pygame.image.load('cat.png')
 cat_animation1 = pygame.image.load('cat_animation1.png')
@@ -25,22 +27,28 @@ i = 2
 
 health = 3
 
+speed_fall=2
+
 def graviti():
     global caty
-    global catx
+    global speed_fall
     if caty < 290:
-        caty += 2
+        jump = False
+        caty += speed_fall
         if caty >= 290:
             caty = 290 
+            speed_fall = 2
 
 def graviti2():
     global caty
-    global catx
+    global speed_fall
     graviti = False
     if caty < 230:
-        caty += 2
+        jump = False
+        caty += speed_fall
         if caty >= 230:
             caty = 230 
+            speed_fall = 2
 
 
 clock = pygame.time.Clock()
@@ -63,7 +71,11 @@ while start:
                 if event.key == pygame.K_LEFT:
                     x = -1
                 if event.key == pygame.K_SPACE:
-                    jump = True
+                    if catx <= 336:
+                        if caty == 290:
+                            jump = True
+                    elif catx >= 336 and caty == 230:
+                        jump = True
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_RIGHT:
                     x = 0
@@ -73,7 +85,6 @@ while start:
                     jump = False
         elif game == False:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                print(pygame.mouse.get_pos())
                 if pygame.mouse.get_pos() >= (308,111):
                     if pygame.mouse.get_pos() <= (495,160):
                         game = True

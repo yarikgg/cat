@@ -67,7 +67,10 @@ while start:
                 if event.key == pygame.K_LEFT:
                     x = -1
                 if event.key == pygame.K_SPACE:
-                    jump = True
+                    if catx < 186 and caty == 325 or catx >= 328 and caty == 325:
+                        jump = True
+                    elif catx >= 186 and caty == 267 and catx < 328:
+                        jump = True
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_RIGHT:
                     x = 0

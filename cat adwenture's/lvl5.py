@@ -74,8 +74,6 @@ if chek >= '5':
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 start = False
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                print(event.pos)
             if game == True:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
@@ -83,7 +81,10 @@ if chek >= '5':
                     if event.key == pygame.K_LEFT:
                         x = -1
                     if event.key == pygame.K_SPACE:
-                        jump = True
+                        if catx < 247 and caty == 315 or catx > 440 and caty == 315:
+                            jump = True
+                        elif catx > 247 and caty == 184 and catx < 440:
+                            jump = True
                 elif event.type == pygame.KEYUP:
                     if event.key == pygame.K_RIGHT:
                         x = 0
