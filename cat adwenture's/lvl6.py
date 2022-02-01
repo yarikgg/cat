@@ -159,7 +159,7 @@ if chek == '6':
             if fx2 == catx and caty >= 320:
                 health -= 1.5
             if health <= 0:
-                exit()
+                game = False
             if catx >= 187 and catx <= 270 and caty == 340:
                 health -= 1
             # отрисовка ВСЕХ обьетов

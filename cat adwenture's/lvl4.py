@@ -144,14 +144,14 @@ if chek == '4':
             if catx == 520 and 561 and caty >= 261:
                 health -= 1
             if health == 0:
-                exit()
+                game = False
             if catx == mx and 610 and jump == False:
                 stopmouse = False
                 health += 1
             if stopmouse == False:
                 mx += 7
             if caty >= 402:
-                exit()
+                game = False
             if catx >= 141 and catx <= 240 and caty >= 261:
                 health -= 1
             fx-=2

@@ -170,7 +170,7 @@ if chek == '3':
             if catx >= 200 and catx <= 400 and caty >= 325 and jump == False:
                 caty += 3
             if caty >= 330:
-                exit()
+                game = False
             if catx >= 557 and caty >= 240:
                 x = 0
             if catx >= 659-53 and caty >= 177:
@@ -185,12 +185,12 @@ if chek == '3':
                 health += 1
                 mx = 999999
             if catx == 569 and jump == False:
-                exit() 
+                game = False
             fx -= 4
             if fx <= 0:
                 fx = 550
             if fx == catx and caty >= 260:
-                exit()
+                game = False
             if catx == 500:
                 nx = 99999
             pygame.display.update()

@@ -168,7 +168,7 @@ if chek == '5':
             if catx >= 247 and catx <= 440 and caty >= 353: # обрыв
                 caty += 3
             if caty >= 330: # если игрок очень низко то мерть
-                exit()
+               game = False
             if catx >= 316 and catx <= 372 and caty == 184: # проверка наступил ли игрок на лужу
                 start = False
             fx1 += 2
@@ -177,7 +177,7 @@ if chek == '5':
                 fx1 = 0
                 fx2 = 750
             if fx1 == catx and caty == 184 or fx2 == catx and caty == 184:
-                exit()
+                game = False
             #отрисовка ВСЕХ обьетов
             pygame.display.update()
             display.blit(lvl1,(0,0))        
