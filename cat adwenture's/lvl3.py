@@ -203,6 +203,8 @@ if chek == '3':
             display.blit(fire_ball,(fx, 303))       
             pygame.display.update()
         if game == False:
+            catx = 30
+            caty = 300
             display.blit(menu,(0,0))
             pygame.display.update()
 else:

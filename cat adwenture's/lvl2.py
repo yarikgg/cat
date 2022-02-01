@@ -149,5 +149,7 @@ while start:
         display.blit(mouse,(mx, 355))          
         pygame.display.update()
     if game == False:
+        catx = 30
+        caty = 325
         display.blit(menu,(0,0))
         pygame.display.update()

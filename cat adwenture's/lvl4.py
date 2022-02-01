@@ -166,5 +166,7 @@ if chek == '4':
             display.blit(fire_ball,(fx, 260))
             pygame.display.update()
         elif game == False:
+            catx = 30
+            caty = 300
             display.blit(menu,(0,0))
             pygame.display.update()

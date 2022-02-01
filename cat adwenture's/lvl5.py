@@ -190,6 +190,8 @@ if chek == '5':
             display.blit(enemy2,(0,180))          
             pygame.display.update()
         elif game == False:
+            catx = 30
+            caty = 315
             display.blit(menu,(0,0))
             pygame.display.update()
 else:
