@@ -3,7 +3,7 @@ chek = f.read()
 f.close()
 
 
-if chek >= '4':
+if chek == '4':
     import pygame
     import time
 

@@ -7,7 +7,7 @@ w,h = 800,402
 display = pygame.display.set_mode((w,h))
 pygame.display.set_caption('Cat adwenture')
 
-cat = pygame.image.load('cat.png')
+cat = pygame.image.load('cat.png')     
 cat_animation1 = pygame.image.load('cat_animation1.png')
 cat_animation2 = pygame.image.load('cat_animation2.png')
 final_animation = pygame.image.load('cat_animation_final.png')
@@ -74,7 +74,7 @@ while start:
                     if catx <= 336:
                         if caty == 290:
                             jump = True
-                    elif catx >= 336 and caty == 230:
+                    elif catx >= 336 and caty >= 230:
                         jump = True
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_RIGHT:

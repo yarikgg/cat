@@ -3,7 +3,7 @@ chek = f.read()
 f.close()
 
 
-if chek >= '5':
+if chek == '5':
     import pygame
     import time
     pygame.init()
@@ -159,7 +159,7 @@ if chek >= '5':
                 f.write('6')
                 f.close()
                 time.sleep(3)      
-                exit()
+                import lvl6.py
             if catx == mx and 610 and jump == False:
                 stopmouse = False
                 health += 1
