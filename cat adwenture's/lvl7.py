@@ -3,7 +3,7 @@ chek = f.read()
 f.close()
 
 
-if chek == '6':
+if chek == '7':
     import pygame
     import time
     pygame.init()
@@ -15,11 +15,8 @@ if chek == '6':
     cat_animation2 = pygame.image.load('cat_animation2.png')
     final_animation = pygame.image.load('cat_animation_final.png')
     bat = pygame.image.load('bat.png')
-    lvl1 = pygame.image.load('lvl6.png')
+    lvl1 = pygame.image.load('lvl7.png')
     mouse = pygame.image.load('mouse.png')
-    enemy = pygame.image.load('неадекват.png')
-    enemy2 = pygame.image.load('неадекват2.png')
-    fire_ball = pygame.image.load('fire ball.png')
     menu = pygame.image.load('menu.png')
     # переменные
     x = 0
@@ -51,12 +48,18 @@ if chek == '6':
     def graviti():
         global caty
         global catx
-        if caty <= 340:
+        if caty <= 330:
             caty += 2
-            if caty >= 340:
-                caty = 340
+            if caty >= 330:
+                caty = 330
     # гравитация для "мостика"
 
+    def anti_graviti():
+        global caty
+        if catx >= 240:
+            caty -= 2
+            if caty <= 240:
+                caty = 240
     # отрисовка стартовой позиции- не обязательно
     display.blit(lvl1, (0, 0))
     display.blit(cat, (catx, caty))
@@ -107,22 +110,14 @@ if chek == '6':
                 display.blit(lvl1, (0, 0))  # анимация
                 display.blit(cat_animation1, (catx, caty))
                 display.blit(text, (4, 4))
-                display.blit(fire_ball, (fx1, 350))
-                display.blit(fire_ball, (fx2, 350))
-                display.blit(enemy, (750, 350))
-                display.blit(enemy2, (0, 350))  # анимация
-                pygame.display.update()  # анимация
+                pygame.display.update()
                 time.sleep(0.3)
                 fx1 += 20
-                fx2 -= 20  # анимация
-                display.blit(lvl1, (0, 0))  # анимация
+                fx2 -= 20
+                display.blit(lvl1, (0, 0))
                 display.blit(cat_animation2, (catx, caty))
                 display.blit(text, (4, 4))
-                display.blit(fire_ball, (fx1, 350))
-                display.blit(fire_ball, (fx2, 350))
-                display.blit(enemy, (750, 350))
-                display.blit(enemy2, (0, 350))  # анимация
-                pygame.display.update()  # анимация
+                pygame.display.update()
                 time.sleep(0.3)
                 display.blit(lvl1, (0, 0))
                 caty -= 160
@@ -131,46 +126,29 @@ if chek == '6':
                 fx2 -= 20
                 display.blit(final_animation, (catx, caty))
                 display.blit(text, (4, 4))
-                display.blit(fire_ball, (fx1, 350))
-                display.blit(fire_ball, (fx2, 350))
-                display.blit(enemy, (750, 350))
-                display.blit(enemy2, (0, 350))
                 pygame.display.update()
                 jump = False
             bx -= 1
-            if catx >= 0:
+            if catx >= 0 and catx < 154 or catx > 438:
+                cat = pygame.image.load('cat.png')
                 graviti()
             if catx >= 800:
                 print('ты выйграл')
                 f = open('lvl.txt', 'w')
-                f.write('7')
+                f.write('8')
                 f.close()
                 time.sleep(3)
-                import lvl7.py
-            if catx >= 316 and catx <= 372 and caty == 184:  # проверка наступил ли игрок на лужу
-                start = False
-            fx1 += 2
-            fx2 -= 2
-            if fx1 == 800:
-                fx1 = 0
-                fx2 = 750
-            if fx1 == catx and caty >= 320:
-                health -= 1
-            if fx2 == catx and caty >= 320:
-                health -= 1.5
+                exit()
             if health <= 0:
                 game = False
-            if catx >= 187 and catx <= 270 and caty == 340:
-                health -= 1
+            if catx >= 155 and catx < 450:
+                cat = pygame.image.load('cat_revers.png')
+                anti_graviti()
             # отрисовка ВСЕХ обьетов
             pygame.display.update()
             display.blit(lvl1, (0, 0))
             display.blit(cat, (catx, caty))
             display.blit(text, (4, 4))
-            display.blit(fire_ball, (fx1, 350))
-            display.blit(fire_ball, (fx2, 350))
-            display.blit(enemy, (750, 350))
-            display.blit(enemy2, (0, 350))
             pygame.display.update()
         elif game == False:
             catx = 30
@@ -178,4 +156,4 @@ if chek == '6':
             display.blit(menu, (0, 0))
             pygame.display.update()
 else:
-    print('пройдите 5 уровень!')
+    print('пройдите 6 уровень!')

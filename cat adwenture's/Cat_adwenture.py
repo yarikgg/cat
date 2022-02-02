@@ -3,11 +3,11 @@ import pygame
 import time
 
 
-w,h = 800,402
-display = pygame.display.set_mode((w,h))
+w, h = 800, 402
+display = pygame.display.set_mode((w, h))
 pygame.display.set_caption('Cat adwenture')
 
-cat = pygame.image.load('cat.png')     
+cat = pygame.image.load('cat.png')
 cat_animation1 = pygame.image.load('cat_animation1.png')
 cat_animation2 = pygame.image.load('cat_animation2.png')
 final_animation = pygame.image.load('cat_animation_final.png')
@@ -27,7 +27,8 @@ i = 2
 
 health = 3
 
-speed_fall=2
+speed_fall = 2
+
 
 def graviti():
     global caty
@@ -36,8 +37,9 @@ def graviti():
         jump = False
         caty += speed_fall
         if caty >= 290:
-            caty = 290 
+            caty = 290
             speed_fall = 2
+
 
 def graviti2():
     global caty
@@ -47,7 +49,7 @@ def graviti2():
         jump = False
         caty += speed_fall
         if caty >= 230:
-            caty = 230 
+            caty = 230
             speed_fall = 2
 
 
@@ -85,8 +87,8 @@ while start:
                     jump = False
         elif game == False:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if pygame.mouse.get_pos() >= (308,111):
-                    if pygame.mouse.get_pos() <= (495,160):
+                if pygame.mouse.get_pos() >= (308, 111):
+                    if pygame.mouse.get_pos() <= (495, 160):
                         game = True
 
     if game == True:
@@ -96,24 +98,24 @@ while start:
         if x == -1:
             catx -= 2
         if jump == True:
-            display.blit(lvl1,(0,0))                        #   анимация
-            display.blit(cat_animation1,(catx,caty))
-            #display.blit(text,(4,4))  
-            display.blit(mouse,(mx, 255))      #   анимация
-            pygame.display.update()                         #   анимация   
-            time.sleep(0.3)                                 #   анимация
-            display.blit(lvl1,(0,0))                        #   анимация
-            display.blit(cat_animation2,(catx,caty))
-            #display.blit(text,(4,4))
-            display.blit(mouse,(mx, 255))        #   анимация       
-            pygame.display.update()                         #   анимация
+            display.blit(lvl1, (0, 0))  # анимация
+            display.blit(cat_animation1, (catx, caty))
+            # display.blit(text,(4,4))
+            display.blit(mouse, (mx, 255))  # анимация
+            pygame.display.update()  # анимация
+            time.sleep(0.3)  # анимация
+            display.blit(lvl1, (0, 0))  # анимация
+            display.blit(cat_animation2, (catx, caty))
+            # display.blit(text,(4,4))
+            display.blit(mouse, (mx, 255))  # анимация
+            pygame.display.update()  # анимация
             time.sleep(0.3)
-            display.blit(lvl1,(0,0))
+            display.blit(lvl1, (0, 0))
             caty -= 120
             catx += 70
-            display.blit(final_animation,(catx,caty))
-            #display.blit(text,(4,4))
-            display.blit(mouse,(mx, 255))
+            display.blit(final_animation, (catx, caty))
+            # display.blit(text,(4,4))
+            display.blit(mouse, (mx, 255))
             pygame.display.update()
             jump = False
         if catx <= 336:
@@ -133,13 +135,12 @@ while start:
             health += 1
         if stopmouse == False:
             mx += 7
-        display.blit(lvl1,(0,0))        
-        display.blit(cat,(catx,caty))    
-        #display.blit(text,(4,4)) 
-        display.blit(mouse,(mx, 255)) 
+        display.blit(lvl1, (0, 0))
+        display.blit(cat, (catx, caty))
+        # display.blit(text,(4,4))
+        display.blit(mouse, (mx, 255))
         pygame.display.update()
-    
 
     elif game == False:
-        display.blit(menu,(0,0))
+        display.blit(menu, (0, 0))
         pygame.display.update()
